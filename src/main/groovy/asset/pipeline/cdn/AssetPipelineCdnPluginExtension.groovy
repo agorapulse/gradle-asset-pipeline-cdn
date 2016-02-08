@@ -1,9 +1,9 @@
 package asset.pipeline.cdn
 
-class AssetPipelineCdnPluginConfig extends AssetProviderConfig {
+class AssetPipelineCdnPluginExtension extends AssetProviderConfig {
 
     def expires // Date or number of days
-    String localStoragePath = 'assetCompile/assets/'
+    String localStoragePath = 'assets/'
     List providers = []
     def gzip = '' // Boolean or 'both'
 

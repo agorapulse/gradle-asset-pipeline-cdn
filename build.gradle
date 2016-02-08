@@ -1,31 +1,25 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.1"
-    }
+plugins {
+    id "com.gradle.plugin-publish" version "0.9.3"
 }
 
 apply plugin: 'com.gradle.plugin-publish'
 apply plugin: 'groovy'
-apply plugin: 'maven-publish'
-apply plugin: 'maven'
 
 repositories {
     mavenCentral()
-    maven { url 'http://dl.bintray.com/bertramlabs/karman' }
+}
+
+ext {
+    awsApiVersion = '1.10.50'
 }
 
 dependencies {
     compile gradleApi()
     compile localGroovy()
 
-    compile 'com.amazonaws:aws-java-sdk-s3:1.10.11'
+    compile "com.amazonaws:aws-java-sdk-s3:$awsApiVersion"
     compile('com.bertramlabs.plugins:karman-aws-groovy:0.6.5') {
-        exclude group: 'com.amazonaws' // Exclude full aws sdk lib (1.9.*)
+        exclude group: 'com.amazonaws' // Exclude full aws sdk lib
     }
 
     testCompile 'junit:junit:4.12'
@@ -38,7 +32,7 @@ pluginBundle {
     website = 'https://github.com/agorapulse/gradle-asset-pipeline-cdn'
     vcsUrl = 'https://github.com/agorapulse/gradle-asset-pipeline-cdn'
     description = 'Asset-Pipeline CDN Gradle Plugin: assets upload task to distribute your assets on CDN providers.'
-    tags = ['assets', 'resources', 'asset-pipeline']
+    tags = ['assets', 'resources', 'asset-pipeline', 'aws']
 
     plugins {
         assetPipelineCdnPlugin {

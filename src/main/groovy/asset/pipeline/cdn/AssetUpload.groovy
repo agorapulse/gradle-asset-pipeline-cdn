@@ -10,7 +10,7 @@ import org.gradle.api.tasks.TaskExecutionException
 
 class AssetUpload extends DefaultTask {
 
-    AssetPipelineCdnPluginConfig config
+    AssetPipelineCdnPluginExtension config
     Date expirationDate
     String gzip = 'true'
     StorageProvider localProvider
