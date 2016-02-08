@@ -27,8 +27,8 @@ Declare the plugin dependency in the `build.gradle`, as shown here:
 
 ```groovy
 plugins {
-   id "com.bertramlabs.plugins.asset-pipeline" version "2.4.2"
-   id "agorapulse.plugins.asset-pipeline-cdn" version "0.1.1"
+   id "com.bertramlabs.plugins.asset-pipeline" version "2.6.9"
+   id "agorapulse.plugins.asset-pipeline-cdn" version "0.1.2"
 }
 ```
 
@@ -43,7 +43,7 @@ assetsCdn {
     provider = 's3' // Karman provider
     accessKey = '{MY_S3_ACCESS_KEY}'
     secretKey = '{MY_S3_SECRET_KEY}'
-    region: 'us-east-1',
+    region = 'us-east-1'
     directory = 'my-bucket'
     storagePath = "assets/${project.name}-${project.version}/" // This is just a prefix example
     expires = 365 // Expires in 1 year (value in days)
@@ -101,11 +101,12 @@ gradle assetCompile uploadAssets
 In your [Asset Pipeline](https://github.com/bertramdev/asset-pipeline) config, add your CDN URL (including your app prefix)
 
 ```groovy
-grails.assets.url = "https://s3.amazonaws.com/my-bucket/assets/${project.name}-${project.version}"
+grails.assets.url = "https://my-bucket.s3.amazonaws.com/assets/${appName}-${appVersion}/"
 ```
 
 # Latest releases
 
+* 2016-02-08 **V0.1.2** : Bug fix + lib upgrade
 * 2015-08-23 **V0.1.1** : Initial release
 
 # Bugs
