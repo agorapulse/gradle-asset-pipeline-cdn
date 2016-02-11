@@ -23,7 +23,23 @@ Note: for this initial release, only *S3* provider is supported.
 
 # Installation
 
-Declare the plugin dependency in the `build.gradle`, as shown here:
+Build script snippet for use in all Gradle versions:
+```groovy
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.agorapulse.plugins:asset-pipeline-cdn:0.1.2"
+  }
+}
+
+apply plugin: "agorapulse.plugins.asset-pipeline-cdn"
+```
+
+Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
 ```groovy
 plugins {
