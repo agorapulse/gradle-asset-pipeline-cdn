@@ -5,10 +5,6 @@ plugins {
 apply plugin: 'com.gradle.plugin-publish'
 apply plugin: 'groovy'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
-}
-
 repositories {
     mavenCentral()
 }
@@ -31,7 +27,7 @@ dependencies {
 }
 
 group = 'agorapulse.plugins'
-version = '0.1.2'
+version = '0.1.3'
 
 pluginBundle {
     website = 'https://github.com/agorapulse/gradle-asset-pipeline-cdn'
@@ -45,4 +41,8 @@ pluginBundle {
             displayName = 'Asset-Pipeline CDN Plugin'
         }
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
 }

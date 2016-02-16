@@ -44,7 +44,7 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
 ```groovy
 plugins {
    id "com.bertramlabs.plugins.asset-pipeline" version "2.6.9"
-   id "agorapulse.plugins.asset-pipeline-cdn" version "0.1.2"
+   id "agorapulse.plugins.asset-pipeline-cdn" version "0.1.3"
 }
 ```
 
@@ -122,6 +122,7 @@ grails.assets.url = "https://my-bucket.s3.amazonaws.com/assets/${appName}-${appV
 
 # Latest releases
 
+* 2016-02-16 **V0.1.3** : Bug fix (dependency conflict) thanks to @mehanika
 * 2016-02-08 **V0.1.2** : Bug fix + lib upgrade
 * 2015-08-23 **V0.1.1** : Initial release
 
