@@ -5,6 +5,10 @@ plugins {
 apply plugin: 'com.gradle.plugin-publish'
 apply plugin: 'groovy'
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
 repositories {
     mavenCentral()
 }
@@ -20,6 +24,7 @@ dependencies {
     compile "com.amazonaws:aws-java-sdk-s3:$awsApiVersion"
     compile('com.bertramlabs.plugins:karman-aws-groovy:0.6.5') {
         exclude group: 'com.amazonaws' // Exclude full aws sdk lib
+        exclude group: 'org.apache.httpcomponents'
     }
 
     testCompile 'junit:junit:4.12'
