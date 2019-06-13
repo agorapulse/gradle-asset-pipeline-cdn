@@ -1,5 +1,6 @@
 package asset.pipeline.cdn
 
+import com.amazonaws.services.s3.AmazonS3Client
 import com.bertramlabs.plugins.karman.CloudFileACL
 import org.gradle.api.InvalidUserDataException
 
@@ -12,6 +13,25 @@ class AssetProviderConfig {
     String region = ''
     String secretKey = ''
     String storagePath = ''
+    String token = ''
+    String endpoint = ''
+    String baseUrl = ''
+    Map<String,String> baseUrls = [:]
+    String symmetricKey = ''
+    String protocol = 'https'
+    String proxyHost = ''
+    Integer proxyPort = null
+    String proxyUser = ''
+    String proxyPassword = ''
+    String proxyWorkstation = ''
+    String proxyDomain = ''
+    Integer maxConnections = 50
+    Boolean keepAlive = false
+    Boolean useGzip = false
+    Boolean anonymous = false
+    Boolean forceMultipart = false
+    Boolean disableChunkedEncoding = false
+    String tempDir
 
     Map toMap() {
         this.properties.findAll{ (it.key != 'class') }.collectEntries {

@@ -6,11 +6,12 @@ apply plugin: 'com.gradle.plugin-publish'
 apply plugin: 'groovy'
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 ext {
-    awsApiVersion = '1.10.50'
+    awsApiVersion = '1.11.570'
 }
 
 dependencies {
@@ -18,7 +19,7 @@ dependencies {
     compile localGroovy()
 
     compile "com.amazonaws:aws-java-sdk-s3:$awsApiVersion"
-    compile('com.bertramlabs.plugins:karman-aws-groovy:0.6.5') {
+    compile('com.bertramlabs.plugins:karman-aws:1.2.1') {
         exclude group: 'com.amazonaws' // Exclude full aws sdk lib
         exclude group: 'org.apache.httpcomponents'
     }
@@ -27,7 +28,7 @@ dependencies {
 }
 
 group = 'agorapulse.plugins'
-version = '0.1.3'
+version = '0.2.0'
 
 pluginBundle {
     website = 'https://github.com/agorapulse/gradle-asset-pipeline-cdn'
